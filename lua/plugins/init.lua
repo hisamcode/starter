@@ -19,6 +19,16 @@ return {
             return require "configs.none-ls"
         end,
     },
+    {
+        "olexsmir/gopher.nvim",
+        ft = "go",
+        opts = function(_, opts)
+            require("gopher").setup(opts)
+        end,
+        build = function()
+            vim.cmd [[silent! GoInstallDeps]]
+        end,
+    },
 
     -- test new blink
     -- { import = "nvchad.blink.lazyspec" },
